@@ -1,35 +1,330 @@
+/* Reset default styles */
 body {
-display: flex;
-flex-direction: column;
-min-height: 100vh;
+  margin: 0;
+  padding: 0;
+  font-family: 'Arial', sans-serif;
+  line-height: 1.6;
+  color: #333;
 }
 
+/* Navigation bar */
+.navbar {
+  background-color: #1a1a1a; /* Dark, premium color */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.navbar-brand, .nav-link {
+  color: #f4f4f4 !important;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav-link:hover {
+  color: #d4af37 !important; /* Gold accent for hover */
+}
+
+/* Hero section */
+.hero-section {
+  position: relative;
+  min-height: 100vh;
+  width: 100vw;
+  background-image: url('../static/kitchen8.jpeg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+}
+
+.hero-content {
+  background: rgba(0, 0, 0, 0.7); /* Darker overlay for readability */
+  padding: 40px;
+  border-radius: 12px;
+  max-width: 90%;
+  width: 100%;
+}
+
+.hero-content h1 {
+  font-size: 4.5rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+}
+
+.hero-content h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.hero-content .lead {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+/* Contact section */
+.contact-section {
+  background: #f8f8f8; /* Light background for distinction */
+  padding: 40px 0;
+  border-top: 1px solid #e0e0e0;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.formspree-container {
+  max-width: 600px;
+  margin: 0 auto;
+  background: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+#contact-form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
+  text-align: left;
+}
+
+.form-group input,
+.form-group textarea {
+  width: 100%;
+  padding: 12px;
+  font-size: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+  outline: none;
+  border-color: #d4af37; /* Gold accent */
+  box-shadow: 0 0 5px rgba(212, 175, 55, 0.3);
+}
+
+.form-group textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.form-text {
+  color: #666;
+  margin-top: 0.25rem;
+}
+
+/* Checkbox styling */
+.form-check {
+  margin-bottom: 1.5rem;
+  position: relative;
+  padding-left: 2.5rem; /* Increased space for checkbox */
+  min-height: 2rem; /* Ensure enough vertical space to prevent wrapping */
+}
+
+.form-check-input {
+  position: absolute;
+  left: 0;
+  top: 0.3rem; /* Slightly adjusted for vertical alignment */
+  margin: 0;
+  width: 1.25rem;
+  height: 1.25rem;
+  cursor: pointer;
+}
+
+.form-check-label {
+  font-size: 1rem;
+  color: #1a1a1a;
+  line-height: 1.5;
+  margin-left: 2rem; /* Increased to ensure no overlap with checkbox */
+  margin-bottom: 0;
+  display: block; /* Full width to prevent wrapping */
+}
+
+.form-check-label a {
+  color: #d4af37;
+  text-decoration: underline;
+}
+
+.form-check-label a:hover {
+  color: #b8972e;
+}
+
+.form-check + .form-text {
+  margin-top: 0.75rem; /* Increased to separate from label */
+  margin-left: 2rem; /* Align with label text */
+  display: block;
+  font-size: 0.85rem; /* Slightly smaller for clarity */
+}
+
+/* Ensure checkbox group is treated as a form group */
+.form-group.form-check {
+  margin-bottom: 2rem; /* Extra spacing before submit button */
+}
+
+.btn-primary {
+  background-color: #d4af37; /* Gold for premium feel */
+  border: none;
+  padding: 12px 24px;
+  font-size: 1.2rem;
+  width: 100%;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #b8972e;
+}
+
+/* Projects section */
+#projects h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+}
+
+#projects p {
+  font-size: 1.1rem;
+  color: #666;
+}
+
+#projects .row {
+  margin-bottom: 2rem;
+}
+
+#projects img {
+  transition: transform 0.3s ease;
+}
+
+#projects img:hover {
+  transform: scale(1.05);
+}
+
+#projects h5 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #1a1a1a;
+}
+
+/* Footer */
 footer {
-background-color: #cfd9eb;
-padding: 10px 0;
-text-align: center;
-width: 100%;
-position: relative;
-bottom: 0;
-left: 0;
+  background-color: #1a1a1a;
+  color: #f4f4f4;
 }
 
-#calendlyWidgetContainer {
-display: none;
-width: 100%;
-max-width: 600px;
-margin: 20px auto 0;
-border: none;
+footer a {
+  color: #d4af37;
+  text-decoration: none;
 }
 
-#calendlyWidget {
-display: none;
-width: 100%;
-height: 100vh;
-border: none;
+footer a:hover {
+  text-decoration: underline;
 }
 
-/* Abstand zwischen dem Projekte-Widget und dem Footer */
-#projectsWidget {
-margin-bottom: 50px;
+/* Section padding for navbar offset */
+section:not(.hero-section) {
+  padding-top: 80px;
+  margin-top: -80px;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .hero-content {
+    padding: 20px;
+    max-width: 95%;
+  }
+
+  .hero-content h1 {
+    font-size: 3rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.8rem;
+  }
+
+  .hero-content .lead {
+    font-size: 1rem;
+  }
+
+  .formspree-container {
+    max-width: 100%;
+    padding: 20px;
+  }
+
+  .btn-primary {
+    font-size: 1rem;
+    padding: 10px 20px;
+  }
+
+  section:not(.hero-section) {
+    padding-top: 60px;
+    margin-top: -60px;
+  }
+
+  #projects h2, .contact-section h2 {
+    font-size: 2rem;
+  }
+
+  .form-check {
+    padding-left: 2rem;
+  }
+
+  .form-check-input {
+    width: 1.1rem;
+    height: 1.1rem;
+    top: 0.25rem;
+  }
+
+  .form-check-label {
+    font-size: 0.95rem;
+    margin-left: 1.75rem;
+  }
+
+  .form-check + .form-text {
+    margin-left: 1.75rem;
+    font-size: 0.8rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 {
+    font-size: 2.2rem;
+  }
+
+  .hero-content h2 {
+    font-size: 1.5rem;
+  }
+
+  .formspree-container {
+    padding: 15px;
+  }
+
+  .form-check {
+    padding-left: 1.75rem;
+  }
+
+  .form-check-input {
+    width: 1rem;
+    height: 1rem;
+    top: 0.2rem;
+  }
+
+  .form-check-label {
+    font-size: 0.9rem;
+    margin-left: 1.5rem;
+  }
+
+  .form-check + .form-text {
+    margin-left: 1.5rem;
+    font-size: 0.75rem;
+  }
 }
