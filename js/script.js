@@ -1,23 +1,33 @@
-// Smooth scrolling for navigation links
 document.addEventListener('DOMContentLoaded', function () {
-  const navLinks = document.querySelectorAll('.nav-link');
+  const scrollLinks = document.querySelectorAll('.nav-link, .cta-button');
 
-  navLinks.forEach(link => {
+  scrollLinks.forEach(link => {
     link.addEventListener('click', function (e) {
-      if (this.getAttribute('href').startsWith('#')) {
+      const href = this.getAttribute('href');
+
+      if (href && href.startsWith('#')) {
         e.preventDefault();
-        const targetId = this.getAttribute('href').substring(1);
-        const targetElement = document.getElementById(targetId);
 
-        if (targetElement) {
-          const navbarHeight = document.querySelector('.navbar').offsetHeight;
-          const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+        // Warten, bis ALLE Ressourcen geladen sind (insb. Bilder)
+        window.requestAnimationFrame(() => {
+          const targetId = href.substring(1);
+          const targetElement = document.getElementById(targetId);
 
-          window.scrollTo({
-            top: targetPosition,
-            behavior: 'smooth'
-          });
-        }
+          if (targetElement) {
+            const navbar = document.querySelector('.navbar');
+            const navbarHeight = navbar ? navbar.offsetHeight : 0;
+
+            // Nochmal in requestAnimationFrame um Layout Shift nach Lazy Loading zu vermeiden
+            setTimeout(() => {
+              const targetPosition = targetElement.getBoundingClientRect().top + window.pageYOffset - navbarHeight;
+
+              window.scrollTo({
+                top: targetPosition,
+                behavior: 'smooth'
+              });
+            }, 50); // Delay gibt dem Browser Zeit, Bilder final zu positionieren
+          }
+        });
       }
     });
   });
